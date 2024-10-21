@@ -1,0 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Lato:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: whitesmoke;
+  color: gray;
+  min-height: 100vh;
+}
+aside {
+  min-width: calc(100% / 4);
+  padding: 0.5rem 1rem 1rem 1rem;
+  background-color: #a6a6a6;
+  color: #4d4b4b;
+  border-radius: 0 1rem 1rem 0;
+  margin-top: 5px;
+  @media (min-width: 768px) {
+    width: 72px;
+  }
+}
+
+header {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+header img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #758a8a;
+  filter: drop-shadow(0 0 4px rgba(31, 42, 42, 0.5));
+}
+
+header h1 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  letter-spacing: 0.2rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+h3 {
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+h2 {
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  color: white;
+}
+form {
+  width: 90%;
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(180deg, #848585, #5d5f5f);
+  border-radius: 8px;
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
+}
+
+.control,
+fieldset {
+  margin-bottom: 1rem;
+}
+
+.control.no-margin {
+  margin-bottom: 0;
+}
+
+.control label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.control input {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #758a8a;
+  background-color: #a3a5a5;
+  color: #142020;
+  /* margin-top: 2rem; */
+}
+
+.control select {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #758a8a;
+  background-color: #869999;
+  color: #142020;
+}
+
+.control:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+}
+
+.control:has(input[type="checkbox"]) label {
+  margin: 0;
+}
+
+.control input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  max-width: none;
+  margin-right: 0.5rem;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  color: #d9e2f1;
+}
+
+.control-error {
+  color: red;
+  font-size: 0.8rem;
+  height: 2rem;
+  padding: 0.5rem 0;
+  margin-bottom: 10px;
+}
+
+.control-error p {
+  margin: 0;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #147b73;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  margin-top: 1rem;
+}
+
+button:hover,
+button:focus {
+  background-color: #319890;
+}
+
+.button-flat {
+  background-color: transparent;
+  color: #9cbaba;
+}
+
+.button-flat:hover,
+.button-flat:focus {
+  background-color: transparent;
+  color: #869999;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background-color: #636262; /* Slate-50 color */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+content {
+  background-color: #a6a6a6;
+  display: flex;
+  width: 90%;
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding: 2rem;
+
+  border-radius: 8px;
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.modal {
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center horizontally */
+  margin-bottom: 20px; /* Add a 20-pixel bottom margin */
+  margin-top: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Create a single column grid */
+  gap: 30px; /* Set a 10-pixel gap between grid items */
+
+  @media (min-width: 640px) {
+    /* Adjust the breakpoint as needed */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Create a two-column grid for medium and larger screens */
+  }
+}
+
+.element {
+  position: relative; /* Makes the element a positioning context */
+  overflow-x: auto; /* Enables horizontal scrolling if the content overflows */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Adds a light shadow */
+
+  background-color: #e4e1e1;
+  @media (min-width: 640px) {
+    /* Adjust the breakpoint as needed */
+    border-radius: 0.5rem; /* Adds rounded corners for medium and larger screens */
+  }
+}
+
+h4 {
+  color: #066021; /* Text color in gray-500 shade */
+  padding: 0.5rem 1rem; /* Padding on left and right, top and bottom */
+  margin: 0.5rem; /* Margin around the element */
+  cursor: pointer; /* Sets the cursor to a pointer when hovering over the element */
+  font-weight: bold; /* Makes the text bold */
+}
+
+.custom-input {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Create a single column grid */
+  gap: 10px; /* Set a 10-pixel gap between grid items */
+  background-color: #cfcccc; /* Light gray background */
+  border: 1px solid #e2e8f0; /* Gray border */
+  margin-left: 20px; /* 20-pixel left margin */
+  color: #111826; /* Dark gray text */
+  font-size: 1rem; /* 14-pixel font size */
+  border-radius: 0.5rem; /* Rounded corners */
+  outline: none; /* Remove default browser outline */
+  padding: 0.5rem 1rem; /* Padding on left and right, top and bottom */
+
+  &:focus {
+    border-color: #3b82f6; /* Blue border on focus */
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Full width on small screens */
+  }
+
+  /* Dark mode styles */
+  &.dark {
+    background-color: #1f2937; /* Dark gray background */
+    border: 1px solid #475569; /* Dark gray border */
+    color: #ffffff; /* White text */
+
+    &:focus {
+      border-color: #3b82f6; /* Blue border on focus */
+    }
+  }
+}
+
+.players {
+  display: block; /* Make each player item display as a block */
+  margin-bottom: 0.5rem;
+ 
+  width: 100%; /* Full width */
+  padding: 0.5rem 1rem; /* Padding on left and right, top and bottom */
+  border-bottom: 1px solid #e2e8f0; /* Gray bottom border */
+  border-top-left-radius: 0.5rem; /* Rounded top left corner */
+  border-top-right-radius: 0.5rem; /* Rounded top right corner */
+  text-transform: capitalize;
+  /* Dark mode styles */
+  &.dark {
+    border-bottom: 1px solid #475569; /* Dark gray bottom border */
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(180deg, #848585, #5d5f5f);
+  border-radius: 8px 8px;
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
+}
+
+th {
+  background-color: #147b73;
+}
+
+tr {
+  border-bottom: 1px solid #ccc;
+}
+th,
+td {
+  color: rgb(230, 229, 229);
+  text-transform: uppercase;
+  text-align: left;
+  padding: 8px;
+}
+
+/* tr:nth-child(even) {
+  background-color: #628884;
+} */
+tr:hover {
+  background-color: #628884;
+}
+
+.selected-player-wrapper {
+  /* styles for selected player component */
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 30%; /* 50% width for larger screens */
+  max-width:90%; /* Full width for smaller screens */
+  margin: 0 auto; 
+  border: 1px solid #ccc; /* Optional border */
+  border-radius: 5px;
+  padding: 1rem; /* Optional padding */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed */
+  .selected-player-wrapper {
+    width: 100%; /* Full width for smaller screens */
+  }
+}
+
+.tours {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-gap: 30px;
+  margin-bottom: 50px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed */
+  .tours {
+    grid-template-columns: 1fr;
+  }
+}
+.cardgroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.cardBody {
+  margin: 0;
+  font-weight: bold;
+}

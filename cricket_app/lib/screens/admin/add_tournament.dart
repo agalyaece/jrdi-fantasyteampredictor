@@ -30,7 +30,7 @@ class _AddTournamentScreen extends State<AddTournamentScreen> {
         _isSending = true;
       });
       final url = Uri.parse(addTournamentUrl);
-      await http.post(
+      final response = await http.post(
         url,
         headers: {
           "Content-Type": "application/json",
@@ -44,27 +44,37 @@ class _AddTournamentScreen extends State<AddTournamentScreen> {
         }),
       );
 
-      if (!context.mounted) {
-        return;
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final newItem = json.decode(response.body);
+        if (!context.mounted) {
+          return;
+        }
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title:
+                  const Text("Success", style: TextStyle(color: Colors.green)),
+              content: const Text("The addition was Successful",
+                  style: TextStyle(color: Colors.white)),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context, newItem);
+                    Navigator.pop(context, const Tournament());
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        setState(() {
+          _isSending = false;
+        });
+        // Handle error
       }
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text("Success", style: TextStyle(color: Colors.green)),
-            content: const Text("The addition was Successful", style: TextStyle(color: Colors.white)),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context, const Tournament());
-                },
-                child: const Text("OK"),
-              ),
-            ],
-          );
-        },
-      );
     }
   }
 

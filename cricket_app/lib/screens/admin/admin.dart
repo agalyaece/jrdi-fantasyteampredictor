@@ -1,3 +1,4 @@
+import 'package:cricket_app/widgets/admin/match.dart';
 import 'package:cricket_app/widgets/admin/players.dart';
 import 'package:cricket_app/widgets/admin/teams.dart';
 import 'package:cricket_app/widgets/admin/tournament.dart';
@@ -49,6 +50,20 @@ class AdminScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               ),
               child: const Text("+ Add Players"),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (ctx) => const Match()));
+              },
+              style: ElevatedButton.styleFrom(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              ),
+              child: const Text("+ Matches"),
             ),
           ],
         ),

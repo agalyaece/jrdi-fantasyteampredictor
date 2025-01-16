@@ -77,6 +77,7 @@ class _AddTeamsScreenState extends State<AddTeamsScreen> {
       // print(response.statusCode);
       // print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
+        final newItem = json.decode(response.body);
         if (!context.mounted) {
           return;
         }
@@ -84,12 +85,14 @@ class _AddTeamsScreenState extends State<AddTeamsScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text("Success", style: TextStyle(color: Colors.green)),
-              content: const Text("The addition was Successful", style: TextStyle(color: Colors.white)),
+              title:
+                  const Text("Success", style: TextStyle(color: Colors.green)),
+              content: const Text("The addition was Successful",
+                  style: TextStyle(color: Colors.white)),
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context, newItem);
                     Navigator.pop(context, const Teams());
                   },
                   child: const Text("OK"),
@@ -108,8 +111,9 @@ class _AddTeamsScreenState extends State<AddTeamsScreen> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text("Error", style: TextStyle(color: Colors.red)),
-              content:
-                  const Text("Failed to add match details. Please try again.", style: TextStyle(color: Colors.white)),
+              content: const Text(
+                  "Failed to add match details. Please try again.",
+                  style: TextStyle(color: Colors.white)),
               actions: [
                 TextButton(
                   onPressed: () {

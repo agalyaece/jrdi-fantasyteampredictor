@@ -1,6 +1,3 @@
-
-
-
 class AddTournament {
   const AddTournament({
     required this.id,
@@ -17,6 +14,15 @@ class AddTournament {
   final String organizer;
   final DateTime tournamentStart;
   final DateTime tournamentEnd;
+
+  factory AddTournament.fromJson(Map<String, dynamic> json) {
+    return AddTournament(
+      id: json['_id'] ?? '',
+      name: json['name'] ?? '',
+      organizer: json['organizer'] ?? '',
+      venue: json['venue'] ?? '',
+      tournamentStart: DateTime.parse(json['date_start']),
+      tournamentEnd: DateTime.parse(json['date_end']),
+    );
+  }
 }
-
-

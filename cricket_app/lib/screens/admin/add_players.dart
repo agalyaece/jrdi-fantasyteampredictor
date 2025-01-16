@@ -77,9 +77,7 @@ class _AddPlayersScreenState extends State<AddPlayersScreen> {
             teamsJson.map((team) => team['team_B'].toString()).toList());
         // print(_team);
       });
-    } else {
-      // Handle error
-    }
+    } 
   }
 
   void _saveItem() async {

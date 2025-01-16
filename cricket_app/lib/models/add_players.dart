@@ -33,4 +33,15 @@ class AddPlayers {
       wickets: json['wickets'] ?? 0,
     );
   }
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is AddPlayers &&
+        other.playerName == playerName &&
+        other.role == role;
+  }
+
+  @override
+  int get hashCode => playerName.hashCode ^ role.hashCode;
 }

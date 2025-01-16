@@ -33,7 +33,7 @@ class _Players extends State<Players> {
       final response = await http.get(url);
       // print(response.body);
       if (response.statusCode != 200 && response.statusCode != 201) {
-        throw Exception('Failed to load teams');
+        throw Exception('Failed to load players');
       }
       final List<dynamic> extractedData = json.decode(response.body);
       final List<AddPlayers> _loadedItems =

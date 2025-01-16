@@ -6,11 +6,18 @@ import 'dart:convert';
 class TeamPlayers extends StatefulWidget {
   final String teamA;
   final String teamB;
+  final String tournamentName;
 
-  const TeamPlayers({required this.teamA, required this.teamB});
+  const TeamPlayers(
+      {super.key,
+      required this.tournamentName,
+      required this.teamA,
+      required this.teamB});
 
-  @override
-  _TeamPlayersState createState() => _TeamPlayersState();
+@override
+  State<StatefulWidget> createState() {
+    return _TeamPlayersState();
+  }
 }
 
 class _TeamPlayersState extends State<TeamPlayers> {
@@ -40,10 +47,10 @@ class _TeamPlayersState extends State<TeamPlayers> {
         final players = json.decode(response.body);
         setState(() {
           _teamAPlayers = players
-              .where((player) => player['team_name'] == widget.teamA)
+              .where((player) => player['team_name'] == widget.teamA && player['tournament_name'] == widget.tournamentName)
               .toList();
           _teamBPlayers = players
-              .where((player) => player['team_name'] == widget.teamB)
+              .where((player) => player['team_name'] == widget.teamB && player['tournament_name'] == widget.tournamentName)
               .toList();
           _isLoading = false;
         });

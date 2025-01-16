@@ -92,6 +92,7 @@ class _FantasyScreenState extends State<FantasyScreen> {
                           builder: (ctx) => TeamPlayers(
                             teamA: _matches[index]['teamA'],
                             teamB: _matches[index]['teamB'],
+                            tournamentName: _matches[index]['tournamentName'],
                           ),
                         ),
                       );
